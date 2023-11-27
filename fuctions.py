@@ -35,7 +35,7 @@ def addentry(database):
         password = str(input("What do you want the password to be? or chose type r for random password ")) #Input passord og brukenavn.
 
         if password == 'r':
-            lenght = int(input("Choose lenght"))
+            lenght = int(input("Choose lenght "))
             password = randomapass(lenght)
 
         username = str(input("What do u want the username to be? "))
@@ -51,7 +51,7 @@ def addentry(database):
 
     #Skriver ut ny .json file som erstater den andre.
     with open(database, "w") as file:
-        json.dump(data, file, indent=4)
+        json.dump(data, file, indent=4) #Indent gjør databasen lettere å for menesker.
     
     return True #Sender melding at innlegget har blit lagdt til.
 
@@ -69,7 +69,7 @@ def removeenry(database):
         if confirm == "y" or confirm == "Y": 
             del data[entry]
         else:
-            return "Aborted by User"
+            return "Aborted by User"       
 
     else:   #Else return error
         return False
@@ -90,6 +90,6 @@ def listall(database):
     input()
 
 
-def pause():
+def pause(): #En liten fuksjon som jeg bruker i main scriptet for å pause koden.               
     print("Press Enter to continue...")
     input()
