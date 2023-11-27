@@ -1,4 +1,13 @@
-import json
+import json #For databaser.
+import secrets #For tilfeldige passord.
+import string #For liste av bokstaver og tall.
+
+
+def randomapass(lenght):
+    characters = string.ascii_letters + string.digits + string.punctuation # Lage en liste med alle bokstaver tall og symboler.
+    password = "".join(secrets.choice(characters) for _ in range(lenght)) # Velger en tilfeldig bokstav fra characters og legger den til password.
+    return password
+
 
 def findpassword(database,website):
     with open(database, 'r') as file: #Åpner .json file i lese modus.
@@ -18,15 +27,17 @@ def addentry(database):
     website = str(input("What website do u want to add? ")) # Spør bruker input hviken nettside.
 
     if website == "":
-        return "Password can not be empty"
-
-
-    check = findpassword(database,website) #Bruker finn fuksjonen for å skjekke om det finnes.
-    if check != False: # Hvis check ikke er False betyr det at inn legge finnes.
-        return False # returnerer false sånn at vi kan se at det failet.
+        return "Website can not be empty"
+    if website in data: 
+        return False 
 
     else:
-        password = str(input("What do you want the password to be? ")) #Input passord og brukenavn.
+        password = str(input("What do you want the password to be? or chose type r for random password ")) #Input passord og brukenavn.
+
+        if password == 'r':
+            lenght = int(input("Choose lenght"))
+            password = randomapass(lenght)
+
         username = str(input("What do u want the username to be? "))
 
 # Lager innleget som med alle variablene.
@@ -47,10 +58,38 @@ def addentry(database):
 
 
 def removeenry(database):
-    with open(database, "r") as file:
-        
+    with open(database, "r") as file: #Opner fil og lagere dataen i var data.
         data = json.load(file)
     
-    entry = str(input("What entry do u want to remove? "))
+    entry = str(input("What entry do u want to remove? ")) #Tar input hvilken inlegg skal slettes.  
 
+    if entry in data:   #Hvis finnes slett.
+        confirm=str(input(f"{entry} was found in {database} are u sure you want to delete this entry? y/n")) #Brukeren må konfirmere at de vil slette.
+        
+        if confirm == "y" or confirm == "Y": 
+            del data[entry]
+        else:
+            return "Aborted by User"
+
+    else:   #Else return error
+        return False
     
+    with open(database, "w") as file:  #lagrer ny fil som ertater den andre.
+        json.dump(data, file, indent=4)    
+        return True
+    
+    
+def listall(database):
+    with open(database, "r") as file: # Åpne fil og lagre data.
+        data = json.load(file)
+
+    print("These are all the entrys in the file:")
+    for entry in data: #Skrive ut hvert inlegg
+        print (entry)
+    print("Press Enter to continue...")
+    input()
+
+
+def pause():
+    print("Press Enter to continue...")
+    input()
