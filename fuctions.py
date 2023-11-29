@@ -86,8 +86,6 @@ def listall(database):
     print("These are all the entrys in the file:")
     for entry in data: #Skrive ut hvert inlegg
         print (entry)
-    print("Press Enter to continue...")
-    input()
 
 
 def pause(): #En liten fuksjon som jeg bruker i main scriptet for å pause koden.               

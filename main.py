@@ -15,6 +15,7 @@ while choice.lower() != "e": # Loop til choice er "e"
 
     if  choice.lower() == "l": #Kaller listall som skirver ut alle inlegg. (Bruker choice.lower for å sjekke både store og små bokstaver.)
         print(listall(database))
+        pause()
 
     #kaller view funk som viser et inlegg
     elif choice.lower() == "v":
