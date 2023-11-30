@@ -19,7 +19,7 @@ Hvis brukeren ikke kan lage et passord, vil programmet ha muligheten til å gene
 
 Her har jeg tatt kravene og brukt computational thinking for å lage algorithme i pseudo code.
 
-**Mål: Hent ut passord og brukernavn fra nettsidens nettadresser.
+**Mål: Hent ut passord og brukernavn fra nettsidens nettadresser.**
 
 Pseudokode:
  ```python
@@ -31,7 +31,7 @@ IF INPUT not IN entries
 	RETURN error #Error inlegg finnes ikke
 ```
  
-**Mål: Legg til et nytt inlegg til passordbehandleren.
+**Mål: Legg til et nytt inlegg til passordbehandleren.**
 
 Pseudokode:
 ```python
@@ -48,7 +48,7 @@ Password.json ADD INPUT1, INPUT2, INPUT3
 ```
 
  
-**Mål: Fjerne et inlegg fra passordbehandleren.
+**Mål: Fjerne et inlegg fra passordbehandleren.**
 
 Pseudokode:
 ```python
@@ -61,7 +61,7 @@ ELSE
 	database remove entry	
 ``` 
 
-**Mål: Generer tilfeldig passord.
+**Mål: Generer tilfeldig passord.**
 
 Pseudokode:
 ```python
