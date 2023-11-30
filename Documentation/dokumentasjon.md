@@ -282,7 +282,7 @@ Outputen var False fordi den netsider finnes allerede, dette forteller meg at te
 
 Nå prøver jeg å legge til et innlegg. Når jeg ble bedt om det, skrev jeg inn website, bruker1 og password0101. Den outputtet True, og i .json filen så jeg at den la til innlegget.
 ```json
-},
+{
     
    "website": {
         "email/Username": "bruker1",
